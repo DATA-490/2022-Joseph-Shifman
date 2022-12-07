@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    build: .
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+    links:
+      - redis:redis
+    expose:
+      - 8000
+    command: >
+      sh -c "python3 /code/manage.py migrate &&
+             python3 /code/manage.py runserver 0.0.0.0:8000"
+
+  nginx:
+   restart: always
+   build: ./nginx/
+   volumes:
+      - ./apps/home/static:/static/
+   depends_on:
+      - web
+   ports:
+      - 80:80
+   links:
+      - web:web
+
+  redis:
+    image: redis:latest
