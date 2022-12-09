@@ -34,6 +34,6 @@ For any car or vehicle owner who wants to know if their vehicle requires a recal
 No
 
 # Public Display/dissemination
-- Fall 2022 CSU Chico College of Natural Sciences Poster Session
+- Fall 2022 CSU Chico College of Engineering, Computer Science, and Construction Management Design Expo
 
 # License
